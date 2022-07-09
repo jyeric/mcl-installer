@@ -15,7 +15,7 @@ use reqwest::{Client, Error, Response};
 use serde::Deserialize;
 use zip::ZipArchive;
 
-const MIRAI_REPO: &str = "mirai.mamoe.net/assets/mcl";
+const MIRAI_REPO: &str = "raw.githubusercontent.com/jyeric/mcl-installer/master";
 
 const PROG_VERSION: &str = "1.0.7";
 
@@ -328,7 +328,7 @@ async fn main() {
         println!();
     }
 
-    let manifest_url = format!("https://{}/org/itxtech/mcl/package.json", repo);
+    let manifest_url = format!("https://{}/src/package.json", repo);
     println!("Fetching iTXTech MCL Package Info from {}", manifest_url);
     let manifest = get(&client, &manifest_url)
         .await
